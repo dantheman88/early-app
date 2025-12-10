@@ -14,7 +14,9 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   const signOutUser = async () => {
-    try { await signOut(auth); } catch (e) {}
+    try {
+      await signOut(auth);
+    } catch (e) {}
   };
 
   return (
