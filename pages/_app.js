@@ -1,14 +1,13 @@
+// pages/_app.js
+
 import "../styles/globals.css";
-import Header from "../components/Header";
+import { AuthProvider } from "../lib/AuthContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="app-shell">
-      <Header />
-      <main className="page">
-        <Component {...pageProps} />
-      </main>
-    </div>
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
   );
 }
 
