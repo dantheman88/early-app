@@ -1,14 +1,12 @@
 export default function Home() {
   return (
     <div style={styles.page}>
-      {/* HEADER */}
       <header style={styles.header}>
         <h1 style={styles.logo}>Early App</h1>
         <p style={styles.subtitle}>earn earlier · smarter</p>
         <a href="/login" style={styles.loginButton}>Login</a>
       </header>
 
-      {/* HERO SECTION */}
       <section style={styles.hero}>
         <h2 style={styles.heroTitle}>Welcome to Early App</h2>
         <p style={styles.heroText}>
@@ -27,7 +25,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SNAPSHOT SECTION */}
       <section style={styles.section}>
         <h3 style={styles.sectionTitle}>Today's snapshot</h3>
         <p style={styles.sectionText}>
@@ -42,7 +39,6 @@ export default function Home() {
         </p>
       </section>
 
-      {/* BENEFITS SECTION */}
       <section style={styles.section}>
         <h3 style={styles.sectionTitle}>What you get for being early</h3>
         <ul style={styles.list}>
@@ -135,4 +131,18 @@ const styles = {
   },
   sectionTitle: {
     fontSize: "20px",
-    fontWeight: "
+    fontWeight: "700",
+    marginBottom: "10px"
+  },
+  sectionText: {
+    color: "#555",
+    marginBottom: "15px"
+  },
+  snapshotStats: {
+    lineHeight: "1.7"
+  },
+  list: {
+    paddingLeft: "20px",
+    lineHeight: "1.7",
+  }
+};
