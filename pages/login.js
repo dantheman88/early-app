@@ -21,3 +21,4 @@ export default function LoginPage() {
 
     try {
       if (mode
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
