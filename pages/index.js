@@ -1,88 +1,138 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { auth } from "../lib/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-
 export default function Home() {
-  const [user, setUser] = useState(null);
-  const router = useRouter();
-
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (u) => {
-      setUser(u || null);
-    });
-    return () => unsub();
-  }, []);
-
-  const go = (path) => router.push(path);
-
   return (
-    <div className="page-inner">
-      <div className="card">
-        <h1 className="page-title">
-          {user ? "Welcome back 👋" : "Welcome to Early App"}
-        </h1>
-        <p className="page-subtitle">
+    <div style={styles.page}>
+      {/* HEADER */}
+      <header style={styles.header}>
+        <h1 style={styles.logo}>Early App</h1>
+        <p style={styles.subtitle}>earn earlier · smarter</p>
+        <a href="/login" style={styles.loginButton}>Login</a>
+      </header>
+
+      {/* HERO SECTION */}
+      <section style={styles.hero}>
+        <h2 style={styles.heroTitle}>Welcome to Early App</h2>
+        <p style={styles.heroText}>
           A modern place to get in early on opportunities and ideas.
         </p>
 
-        <div className="section">
-          <span className="pill">
-            ⚡ Early access • Private preview
-          </span>
-          <div className="badge-list">
-            <span className="badge">Zero noise</span>
-            <span className="badge">Curated drops</span>
-            <span className="badge">Built for mobile</span>
-          </div>
-        </div>
+        <p style={styles.bullets}>
+          ⚡ Early access · Private preview  
+          <br />
+          Zero noise · Curated drops · Built for mobile
+        </p>
 
-        <div className="section">
-          <div className="btn-row">
-            <button
-              className="btn btn-primary"
-              onClick={() => go(user ? "/profile" : "/login")}
-            >
-              {user ? "View your profile" : "Get started"}
-            </button>
-            <button className="btn btn-secondary" onClick={() => go("/settings")}>
-              Personalize app
-            </button>
-          </div>
+        <div style={styles.heroButtons}>
+          <a href="/signup" style={styles.primaryButton}>Get started</a>
+          <a href="/profile" style={styles.secondaryButton}>Personalize app</a>
         </div>
-      </div>
+      </section>
 
-      <div className="dashboard-grid section">
-        <div className="card-glass">
-          <h2 className="section-title">Today&apos;s snapshot</h2>
-          <p className="text-muted">
-            This will later show your earnings, invites, and streaks. For now,
-            it&apos;s a stylish placeholder while we build the core engine.
-          </p>
-          <div className="divider" />
-          <div className="badge-list">
-            <span className="badge">Earnings: coming soon</span>
-            <span className="badge">Invites: 0 / 5 used</span>
-            <span className="badge">Status: Early tester</span>
-          </div>
-        </div>
+      {/* SNAPSHOT SECTION */}
+      <section style={styles.section}>
+        <h3 style={styles.sectionTitle}>Today's snapshot</h3>
+        <p style={styles.sectionText}>
+          This will later show your earnings, invites, and streaks.
+          For now, it's a stylish placeholder while we build the core engine.
+        </p>
 
-        <div className="card-glass">
-          <h2 className="section-title">What you get for being early</h2>
-          <ul
-            style={{
-              listStyle: "none",
-              paddingLeft: 0,
-              fontSize: "0.86rem",
-              color: "#9ca3af",
-            }}
-          >
-            <li>• Priority access to new features</li>
-            <li>• Better rewards for your first users</li>
-            <li>• Direct line to the builder (you!)</li>
-          </ul>
-        </div>
-      </div>
+        <p style={styles.snapshotStats}>
+          Earnings: <strong>coming soon</strong> <br />
+          Invites: <strong>0 / 5 used</strong> <br />
+          Status: <strong>Early tester</strong>
+        </p>
+      </section>
+
+      {/* BENEFITS SECTION */}
+      <section style={styles.section}>
+        <h3 style={styles.sectionTitle}>What you get for being early</h3>
+        <ul style={styles.list}>
+          <li>Priority access to new features</li>
+          <li>Better rewards for your first users</li>
+          <li>Direct line to the builder (you!)</li>
+        </ul>
+      </section>
     </div>
   );
 }
+
+const styles = {
+  page: {
+    padding: "20px",
+    fontFamily: "Inter, sans-serif",
+    background: "#f5f5f5",
+    minHeight: "100vh"
+  },
+  header: {
+    marginBottom: "30px",
+  },
+  logo: {
+    fontSize: "28px",
+    fontWeight: "800",
+  },
+  subtitle: {
+    marginTop: "-5px",
+    fontSize: "14px",
+    color: "#777",
+  },
+  loginButton: {
+    display: "inline-block",
+    marginTop: "10px",
+    fontSize: "14px",
+    color: "#0070f3",
+    textDecoration: "underline"
+  },
+  hero: {
+    background: "white",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+    marginBottom: "30px"
+  },
+  heroTitle: {
+    fontSize: "26px",
+    fontWeight: "900"
+  },
+  heroText: {
+    marginTop: "10px",
+    color: "#444"
+  },
+  bullets: {
+    marginTop: "15px",
+    color: "#222",
+    fontWeight: "500"
+  },
+  heroButtons: {
+    marginTop: "20px",
+    display: "flex",
+    gap: "10px"
+  },
+  primaryButton: {
+    flex: 1,
+    background: "#0070f3",
+    color: "white",
+    padding: "12px",
+    borderRadius: "8px",
+    textAlign: "center",
+    fontWeight: "700",
+    textDecoration: "none"
+  },
+  secondaryButton: {
+    flex: 1,
+    background: "#eaeaea",
+    color: "#333",
+    padding: "12px",
+    borderRadius: "8px",
+    textAlign: "center",
+    fontWeight: "600",
+    textDecoration: "none"
+  },
+  section: {
+    background: "white",
+    padding: "20px",
+    borderRadius: "12px",
+    marginBottom: "20px",
+    boxShadow: "0 4px 20px rgba(0,0,0,0.05)"
+  },
+  sectionTitle: {
+    fontSize: "20px",
+    fontWeight: "
