@@ -1,36 +1,58 @@
 export default function DropsPage() {
-  const offer = {
-    id: 1,
-    title: "ISOQAR Academy – Online Courses",
-    description: "Access professional online qualifications and training.",
-    points: 200,
-  };
+  const offers = [
+    {
+      id: 1,
+      title: "Learn a High-Value Skill – Earn Points",
+      description:
+        "Join ISOQAR Academy and access professional training courses. Complete signup to earn reward points.",
+      points: 1000,
+    },
+    {
+      id: 2,
+      title: "Book Theatre Tickets – Earn Rewards",
+      description:
+        "Book tickets for top UK shows through Theatre Tickets Direct and earn points when you purchase.",
+      points: 250,
+    },
+  ];
 
-  const trackClick = () => {
+  const trackClick = (offer) => {
     window.location.href = `/api/track?offerId=${offer.id}`;
   };
 
   return (
-    <div style={{ padding: 24, maxWidth: 600, margin: "0 auto" }}>
-      <h1>🔥 Featured Offer</h1>
+    <div style={{ padding: 20 }}>
+      <h1>🔥 Featured Rewarded Offers</h1>
+      <p>Choose an offer, complete the action, and earn points.</p>
 
-      <div style={{ marginTop: 20 }}>
-        <h2>{offer.title}</h2>
-        <p>{offer.description}</p>
-        <p><strong>Reward:</strong> {offer.points} points</p>
-
-        <button
-          onClick={trackClick}
+      {offers.map((offer) => (
+        <div
+          key={offer.id}
           style={{
-            padding: "12px 20px",
-            fontSize: 16,
-            cursor: "pointer",
-            marginTop: 10,
+            marginBottom: 20,
+            padding: 15,
+            borderRadius: 8,
+            background: "#111",
+            color: "#fff",
           }}
         >
-          Start Offer
-        </button>
-      </div>
+          <h2>{offer.title}</h2>
+          <p>{offer.description}</p>
+          <button
+            onClick={() => trackClick(offer)}
+            style={{
+              padding: "10px 16px",
+              background: "#22c55e",
+              border: "none",
+              borderRadius: 6,
+              color: "#000",
+              fontWeight: "bold",
+            }}
+          >
+            Start Offer (+{offer.points} points)
+          </button>
+        </div>
+      ))}
     </div>
   );
 }
