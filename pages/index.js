@@ -224,3 +224,48 @@ const styles = {
     gap: 6,
   },
 };
+import Link from "next/link";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../lib/firebase";
+
+export default function HomePage() {
+  const [user] = useAuthState(auth);
+
+  return (
+    <div style={styles.page}>
+      <div className="glow"></div>
+
+      {/* HEADER BAR */}
+      <header style={styles.nav}>
+        <div style={styles.logoBox}>
+          <span style={styles.logoDot}></span>
+          <span style={styles.logoText}>Early App</span>
+        </div>
+
+        <div>
+          {!user ? (
+            <Link href="/login" style={styles.linkBtn}>Login</Link>
+          ) : (
+            <Link href="/profile" style={styles.linkBtn}>My Profile</Link>
+          )}
+        </div>
+      </header>
+
+      {/* HERO SECTION */}
+      <section style={styles.hero} className="fade-in">
+        <h1 style={styles.heroTitle}>
+          {user ? "Welcome back to" : "Welcome to"} <span style={styles.gradientText}>Early App</span>
+        </h1>
+
+        <p style={styles.heroSub}>
+          A modern place to get in early on opportunities, ideas, and rewards.  
+          Built for mobile. Zero noise. Curated drops.
+        </p>
+
+        {!user ? (
+          <>
+            <Link href="/signup" style={styles.primaryButton}>Get Started</Link>
+            <Link href="/login" style={styles.altLink}>Already have an account? Login</Link>
+          </>
+        ) : (
+          <Link href="/profile" style={styles.primaryButton
