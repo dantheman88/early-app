@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
 
         <div className="nav-right">
           <Link href="/drops" className="nav-btn">
-            Drops
+            Available rewards 
           </Link>
           <Link href="/profile" className="nav-btn nav-primary">
             Account
