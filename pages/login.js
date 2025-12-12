@@ -108,3 +108,20 @@ const styles = {
   error: {
     background: "rgba(255,0,0,0.2)",
     padding: "10px",
+    borderRadius: "8px",
+    marginBottom: "12px",
+    color: "#ff8c8c",
+  },
+  showToggle: {
+    position: "absolute",
+    right: "12px",
+    top: "14px",
+    fontSize: "14px",
+    color: "#7ec8ff",
+    cursor: "pointer",
+  },
+  altText: {
+    marginTop: "15px",
+    color: "#c7d2e0",
+  },
+};
