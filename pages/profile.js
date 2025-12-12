@@ -91,3 +91,68 @@ const styles = {
     textAlign: "center",
     padding: "30px",
   },
+
+  avatar: {
+    width: "110px",
+    height: "110px",
+    borderRadius: "50%",
+    marginBottom: "15px",
+    border: "3px solid rgba(0,200,255,0.5)",
+    boxShadow: "0 0 20px rgba(0,200,255,0.3)",
+  },
+
+  name: {
+    fontSize: "26px",
+    fontWeight: "700",
+    color: "white",
+  },
+
+  email: {
+    marginTop: "4px",
+    color: "#b8c4d8",
+    marginBottom: "18px",
+  },
+
+  section: {
+    textAlign: "left",
+    marginTop: "25px",
+  },
+
+  sectionTitle: {
+    fontSize: "20px",
+    marginBottom: "8px",
+    fontWeight: "600",
+  },
+
+  tag: {
+    display: "inline-block",
+    padding: "6px 14px",
+    borderRadius: "12px",
+    background: "rgba(0,150,255,0.35)",
+    color: "white",
+    fontWeight: "600",
+  },
+
+  statBox: {
+    background: "rgba(255,255,255,0.06)",
+    padding: "12px",
+    marginTop: "10px",
+    borderRadius: "12px",
+    border: "1px solid rgba(255,255,255,0.1)",
+  },
+
+  statLabel: {
+    fontSize: "14px",
+    color: "#c7d2e0",
+  },
+
+  statValue: {
+    fontSize: "17px",
+    fontWeight: "600",
+    marginTop: "4px",
+  },
+
+  signOut: {
+    marginTop: "30px",
+  },
+};
