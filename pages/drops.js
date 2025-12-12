@@ -22,8 +22,8 @@ export default function DropsPage() {
 
   return (
     <div style={{ padding: 20 }}>
-      <h1>🔥 Featured Rewarded Offers</h1>
-      <p>Choose an offer, complete the action, and earn points.</p>
+      <h1>🔥 Available rewards</h1>
+      <p>complete trusted offers and earn reward points.</p>
 
       {offers.map((offer) => (
         <div
