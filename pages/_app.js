@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }) {
         </div>
 
         <div className="nav-right">
-          <Link href="/drops">Drops</Link>
           <Link href="/profile">Profile</Link>
         </div>
       </nav>
