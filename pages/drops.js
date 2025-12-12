@@ -41,12 +41,24 @@ export default function DropsPage() {
           <button
             onClick={() => trackClick(offer)}
             style={{
-              padding: "10px 16px",
-              background: "#22c55e",
-              border: "none",
-              borderRadius: 6,
-              color: "#000",
-              fontWeight: "bold",
+              ,<h2>
+  {offer.title}
+  {offer.badge && (
+    <span
+      style={{
+        marginLeft: 10,
+        padding: "4px 8px",
+        fontSize: 12,
+        borderRadius: 6,
+        background: "#22c55e",
+        color: "#000",
+        fontWeight: "bold",
+      }}
+    >
+      {offer.badge}
+    </span>
+  )}
+</h2>
             }}
           >
             Start Offer (+{offer.points} points)
