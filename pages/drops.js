@@ -1,42 +1,36 @@
 export default function DropsPage() {
-  const offers = [
-    {
-      id: 1,
-      title: "Get £20 Free – Monzo",
-      description: "Open a Monzo account and verify your identity.",
-      points: 300,
-    },
-    {
-      id: 2,
-      title: "£15 Cashback – Revolut",
-      description: "Join Revolut and complete the quick signup.",
-      points: 150,
-    },
-    {
-      id: 3,
-      title: "Earn from surveys – Swagbucks",
-      description: "Easy tasks anyone can complete.",
-      points: 50,
-    },
-  ];
+  const offer = {
+    id: 1,
+    title: "ISOQAR Academy – Online Courses",
+    description: "Access professional online qualifications and training.",
+    points: 200,
+  };
 
-  const trackClick = (offer) => {
+  const trackClick = () => {
     window.location.href = `/api/track?offerId=${offer.id}`;
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>🔥 Featured Money Drops</h1>
+    <div style={{ padding: 24, maxWidth: 600, margin: "0 auto" }}>
+      <h1>🔥 Featured Offer</h1>
 
-      {offers.map((offer) => (
-        <div key={offer.id} style={{ marginBottom: 20 }}>
-          <h2>{offer.title}</h2>
-          <p>{offer.description}</p>
-          <button onClick={() => trackClick(offer)}>
-            Start Offer (+{offer.points} points)
-          </button>
-        </div>
-      ))}
+      <div style={{ marginTop: 20 }}>
+        <h2>{offer.title}</h2>
+        <p>{offer.description}</p>
+        <p><strong>Reward:</strong> {offer.points} points</p>
+
+        <button
+          onClick={trackClick}
+          style={{
+            padding: "12px 20px",
+            fontSize: 16,
+            cursor: "pointer",
+            marginTop: 10,
+          }}
+        >
+          Start Offer
+        </button>
+      </div>
     </div>
   );
 }
