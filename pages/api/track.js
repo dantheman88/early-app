@@ -1,17 +1,16 @@
 export default function handler(req, res) {
-  const { offerId } = req.query;
+  const { offer } = req.query;
 
   const offerLinks = {
-    "1": "https://www.google.com",
-    "2": "https://www.bing.com",
-    "3": "https://www.yahoo.com",
+    1: "https://www.awin1.com/cread.php?awinmid=1936&awinaffid=2693548&ued=https%3A%2F%2Fwww.theatreticketsdirect.co.uk"
   };
 
-  const link = offerLinks[String(offerId)];
-
-  if (!link) {
-    return res.status(400).json({ error: "Invalid offerId" });
+  if (!offer || !offerLinks[offer]) {
+    return res.status(400).send("Invalid offer");
   }
 
-  return res.redirect(302, link);
+  res.writeHead(302, {
+    Location: offerLinks[offer],
+  });
+  res.end();
 }
