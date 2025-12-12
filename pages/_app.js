@@ -26,7 +26,8 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;.top-nav {
+export default MyApp;
+.top-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
