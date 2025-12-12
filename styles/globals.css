@@ -1,11 +1,96 @@
-/* Make all links white and brighter */
-a {
-  color: #ffffff !important;
-  text-decoration: none;
-  font-weight: 500;
+/* ==== GLOBAL RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Optional: Hover effect */
-a:hover {
-  opacity: 0.8;
+html,
+body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #0a0f1f; /* deep futuristic blue */
+  color: #ffffff; /* make all text readable */
 }
+
+/* Smooth text */
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Links */
+a {
+  color: #7ec8ff; /* bright blue, readable */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* Center containers on mobile */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Futuristic card style */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Titles */
+h1, h2, h3 {
+  color: #ffffff;
+}
+
+/* Subtle muted text */
+.text-muted {
+  color: #c8d2e4;
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+input::placeholder {
+  color: #b9c4d4;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Main blue button */
+.btn-primary {
+  background: #0070f3;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0059c9;
