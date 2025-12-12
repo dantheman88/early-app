@@ -44,7 +44,29 @@ export default function DropsPage() {
     <div style={{ padding: 20 }}>
       {/* Header */}
       <h1>🔥 Available rewards</h1>
-      <p>Complete trusted offers and earn reward points.</p>
+
+<p>
+  Complete trusted partner offers and earn Early App points.
+</p>
+
+<div
+  style={{
+    marginTop: 16,
+    marginBottom: 24,
+    padding: 14,
+    borderRadius: 10,
+    background: "#0f172a",
+    color: "#cbd5f5",
+    fontSize: 14,
+  }}
+>
+  <strong>What are points?</strong>
+  <p style={{ marginTop: 8 }}>
+    Points unlock early access to higher-value rewards, priority bonuses,
+    and future cash redemptions. Early members will be the first to access
+    cash rewards when they launch.
+  </p>
+</div>
 
       {/* Offers */}
       {sortedOffers.map((offer) => {
