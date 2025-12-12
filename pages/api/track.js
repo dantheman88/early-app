@@ -14,9 +14,7 @@ const offerPoints = {
 //  OFFER REDIRECT LINKS
 // ===============================
 const offerLinks = {
-  1: "https://monzo.com",
-  2: "https://revolut.com",
-  3: "https://swagbucks.com",
+  1: https://www.awin1.com/cread.php?awinmid=1936&awinaffid=2693548&ued=https%3A%2F%2Fwww.theatreticketsdirect.co.uk
 };
 
 // ===============================
