@@ -3,21 +3,18 @@ import { useRouter } from "next/router";
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../lib/firebase";
 
-export default function Login() {
+export default function LoginPage() {
   const router = useRouter();
-
   const [error, setError] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [busy, setBusy] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
-    setBusy(true);
 
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -26,64 +23,88 @@ export default function Login() {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/");
     } catch (err) {
-      setError(err.message);
+      setError(err.message.replace("Firebase:", "").trim());
     }
-
-    setBusy(false);
   };
 
   const googleLogin = async () => {
     try {
-      setBusy(true);
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
       router.push("/");
     } catch (err) {
-      setError(err.message);
+      setError(err.message.replace("Firebase:", "").trim());
     }
-    setBusy(false);
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h1 className="auth-title">Welcome Back</h1>
-        <p className="auth-sub">Login to continue</p>
+    <div style={styles.page}>
+      <div className="glow"></div>
 
-        {error && <p className="error-box">{error}</p>}
+      <div style={styles.card} className="card fade-in">
+        <h1 style={styles.title}>Login</h1>
+        <p style={styles.subtitle}>Welcome back</p>
+
+        {error && <p style={styles.error}>{error}</p>}
 
         <form onSubmit={handleLogin}>
-          <input name="email" type="email" className="auth-input" placeholder="Email" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
 
-          <div>
+          <div style={{ position: "relative" }}>
             <input
+              type={showPassword ? "text" : "password"}
               name="password"
-              type={passwordVisible ? "text" : "password"}
-              className="auth-input"
               placeholder="Password"
               required
             />
-            <div
-              className="password-toggle"
-              onClick={() => setPasswordVisible(!passwordVisible)}
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              style={styles.showToggle}
             >
-              {passwordVisible ? "Hide" : "Show"}
-            </div>
+              {showPassword ? "Hide" : "Show"}
+            </span>
           </div>
 
-          <button type="submit" className="auth-btn" disabled={busy}>
-            {busy ? "Loading..." : "Login"}
-          </button>
+          <button className="btn btn-primary">Sign In</button>
         </form>
 
-        <button className="google-btn" onClick={googleLogin}>
-          Continue with Google
+        <button onClick={googleLogin} className="btn btn-google">
+          Sign in with Google
         </button>
 
-        <div className="link-row">
-          <a href="/signup">Don't have an account? Create one</a>
-        </div>
+        <p style={styles.altText}>
+          Don’t have an account?{" "}
+          <a href="/signup">Create one</a>
+        </p>
       </div>
     </div>
   );
 }
+
+const styles = {
+  page: {
+    minHeight: "100vh",
+    padding: "20px",
+  },
+  card: {
+    maxWidth: "420px",
+    margin: "40px auto",
+    textAlign: "center",
+  },
+  title: {
+    fontSize: "28px",
+    fontWeight: "700",
+    marginBottom: "5px",
+  },
+  subtitle: {
+    color: "#c7d2e0",
+    marginBottom: "20px",
+  },
+  error: {
+    background: "rgba(255,0,0,0.2)",
+    padding: "10px",
