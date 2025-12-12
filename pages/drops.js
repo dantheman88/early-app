@@ -56,3 +56,20 @@ export default function DropsPage() {
     </div>
   );
 }
+<div
+  style={{
+    marginTop: 30,
+    padding: 16,
+    borderRadius: 8,
+    background: "#0f172a",
+    color: "#9ca3af",
+    textAlign: "center",
+  }}
+>
+  <h3 style={{ color: "#fff", marginBottom: 6 }}>
+    More rewards coming soon
+  </h3>
+  <p>
+    New high-value offers are being added. Check back regularly.
+  </p>
+</div>
