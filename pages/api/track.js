@@ -2,15 +2,15 @@ export default function handler(req, res) {
   const { offerId } = req.query;
 
   const offerLinks = {
-    1: "https://www.awin1.com/cread.php?awinmid=1936&awinaffid=2693548", // Monzo
-    2: "https://revolut.com/referral/YOURCODE",                        // Revolut
-    3: "https://www.swagbucks.com",                                   // Surveys
+    "1": "https://www.google.com",
+    "2": "https://www.bing.com",
+    "3": "https://www.yahoo.com",
   };
 
-  const link = offerLinks[offerId];
+  const link = offerLinks[String(offerId)];
 
   if (!link) {
-    return res.status(400).send("Invalid offer");
+    return res.status(400).json({ error: "Invalid offerId" });
   }
 
   return res.redirect(302, link);
