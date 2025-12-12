@@ -2,14 +2,14 @@ export default function DropsPage() {
   const offers = [
     {
       id: 1,
-      title: "Get £20 Free – Monzo",
+      title: "Get £20 Free — Monzo",
       description: "Open a Monzo account and earn an instant £20 bonus.",
       payout: "£20 per signup",
       link: "https://monzo.com",
     },
     {
       id: 2,
-      title: "£15 Cashback – Revolut",
+      title: "£15 Cashback — Revolut",
       description: "Join Revolut and earn a £15 reward.",
       payout: "£15 per signup",
       link: "https://revolut.com",
